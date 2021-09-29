@@ -3,7 +3,8 @@ pipeline{
     stages{
         stage("run packer"){
             steps{
-              sh 'packer build image.json -var "versions"'
+              sh "packer init image.pkr.hcl"
+              sh "packer build image.pkr.hcl"
             }
             
         }
