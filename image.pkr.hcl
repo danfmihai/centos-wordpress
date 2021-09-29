@@ -36,7 +36,7 @@ build {
       "sudo amazon-linux-extras install epel php7.3 -y",
       "sudo yum install yum-utils httpd wget git -y",
       "sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm ",
-      "sudo yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd",
+      "sudo yum install -y php php-common php-opcache php-cli php-gd php-curl php-mysqlnd",
       "sudo yum install mariadb-server mariadb -y",
       "sudo yum install mysql -y",
       "sudo systemctl start httpd",
