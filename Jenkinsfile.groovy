@@ -5,8 +5,8 @@ pipeline{
             steps{
               sh """
               #!/bin/bash
-              packer init .
-              packer build -force .
+              packer init -var-file=variables.pkr.hcl image.pkr.hcl
+              packer build -var-file=variables.pkr.hcl image.pkr.hcl
               """
             }
             
