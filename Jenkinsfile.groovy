@@ -6,7 +6,7 @@ pipeline{
               sh """
               #!/bin/bash
               packer init .
-              packer build .
+              packer build -force .
               """
             }
             
