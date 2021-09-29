@@ -41,6 +41,8 @@ build {
             "sudo rsync -avP ~/wordpress/ /var/www/html/",
             "mkdir /var/www/html/wp-content/uploads",
             "sudo chown -R apache:apache /var/www/html/*",
+            "cd /var/www/html"
+            "cp wp-config-sample.php wp-config.php"
             "echo ",
             "echo Installation of Wordpress done!"    
     ]
