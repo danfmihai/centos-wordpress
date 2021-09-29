@@ -21,7 +21,7 @@
             "sudo systemctl start mariadb",
             "sudo systemctl enable mariadb.service",
             "sudo systemctl restart httpd.service",
-            "wget http://wordpress.org/latest.tar.gz ",
+            "wget https://wordpress.org/wordpress-{{WORDPRESS_VERSION}}.tar.gz",
             "tar xzvf latest.tar.gz",
             "sudo rsync -avP ~/wordpress/ /var/www/html/",
             "mkdir /var/www/html/wp-content/uploads",
