@@ -22,7 +22,7 @@
             "sudo systemctl enable mariadb.service",
             "sudo systemctl restart httpd.service",
             "wget https://wordpress.org/wordpress-{{WORDPRESS_VERSION}}.tar.gz",
-            "tar xzvf latest.tar.gz",
+            "tar xzvf {{WORDPRESS_VERSION}}*",
             "sudo rsync -avP ~/wordpress/ /var/www/html/",
             "mkdir /var/www/html/wp-content/uploads",
             "sudo chown -R apache:apache /var/www/html/*"
