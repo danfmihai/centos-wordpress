@@ -24,7 +24,8 @@ build {
   provisioner "shell" {
     
     inline = [
-            "echo Installing Wordpress version {{WORDPRESS_VERSION}}",
+            
+            "echo Installing Wordpress version ${var.wordpress_version}",
             "echo",
             "sudo yum install httpd wget git -y",
             "sudo yum install php php-mysql -y",
@@ -35,11 +36,11 @@ build {
             "sudo systemctl start mariadb",
             "sudo systemctl enable mariadb.service",
             "sudo systemctl restart httpd.service",
-            "wget https://wordpress.org/wordpress-{{WORDPRESS_VERSION}}.tar.gz",
-            "tar xzvf {{WORDPRESS_VERSION}}*",
+            "wget https://wordpress.org/wordpress-${var.wordpress_version}.tar.gz",
+            "tar xzvf ${var.wordpress_version}*",
             "sudo rsync -avP ~/wordpress/ /var/www/html/",
             "mkdir /var/www/html/wp-content/uploads",
-            "sudo chown -R apache:apache /var/www/html/*"
+            "sudo chown -R apache:apache /var/www/html/*",
             "echo ",
             "echo Installation of Wordpress done!"    
     ]
