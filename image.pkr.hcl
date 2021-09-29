@@ -37,7 +37,7 @@ build {
             "sudo systemctl enable mariadb.service",
             "sudo systemctl restart httpd.service",
             "wget https://wordpress.org/wordpress-${var.wordpress_version}.tar.gz",
-            "tar xzvf ${var.wordpress_version}*",
+            "tar xzvf wordpress-*",
             "sudo rsync -avP ~/wordpress/ /var/www/html/",
             "mkdir /var/www/html/wp-content/uploads",
             "sudo chown -R apache:apache /var/www/html/*",
