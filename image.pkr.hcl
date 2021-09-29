@@ -27,6 +27,7 @@ build {
             
             "echo Installing Wordpress version ${var.wordpress_version}",
             "echo",
+            "sudo yum update -y"
             "sudo yum install httpd wget git -y",
             "sudo yum install php php-mysql -y",
             "sudo yum install php-gd mariadb-server mariadb -y",
