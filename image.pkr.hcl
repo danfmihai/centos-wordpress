@@ -30,13 +30,13 @@ build {
   provisioner "shell" {
 
     inline = [
-
+      "echo",
       "echo Installing Wordpress version ${var.wordpress_version}",
       "echo",
-      "sudo yum update -y",
+
       "sudo amazon-linux-extras install epel -y",
       "sudo yum install yum-utils httpd wget git -y",
-      "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm ",
+      "sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm ",
       "sudo yum-config-manager --enable remi-php73",
       "sudo yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd",
       "sudo yum install mariadb-server mariadb -y",
