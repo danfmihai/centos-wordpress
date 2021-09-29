@@ -1,10 +1,13 @@
 pipeline{
     agent any
     stages{
-        stage("run packer"){
+        stage("Packer - Build ec2 image for Wordpress"){
             steps{
-              sh "packer init ."
-              sh "packer build ."
+              sh """
+              #!/bin/bash
+              packer init .
+              packer build .
+              """
             }
             
         }
