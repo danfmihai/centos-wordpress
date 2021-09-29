@@ -15,6 +15,12 @@ source "amazon-ebs" "wordpress" {
   ssh_username  = "ec2-user"
 }
 
+variable "wordpress_version" {
+  type    = string
+  default = "5.8.1"
+}
+
+
 build {
   name = "wordpress-{{timestamp}}"
   sources = [
@@ -22,31 +28,31 @@ build {
   ]
 
   provisioner "shell" {
-    
+
     inline = [
-            
-            "echo Installing Wordpress version ${var.wordpress_version}",
-            "echo",
-            "sudo yum update -y",
-            "sudo yum install httpd wget git -y",
-            "sudo yum install php php-mysql -y",
-            "sudo yum install php-gd mariadb-server mariadb -y",
-            "sudo yum install mysql -y",
-            "sudo systemctl start httpd",
-            "sudo systemctl enable httpd.service",
-            "sudo systemctl start mariadb",
-            "sudo systemctl enable mariadb.service",
-            "sudo systemctl restart httpd.service",
-            "wget https://wordpress.org/wordpress-${var.wordpress_version}.tar.gz",
-            "tar xzvf wordpress-*",
-            "sudo rsync -avP ~/wordpress/ /var/www/html/",
-            "mkdir /var/www/html/wp-content/uploads",
-            "sudo chown -R apache:apache /var/www/html/*",
-            "cd /var/www/html",
-            "cp wp-config-sample.php wp-config.php",
-            "echo ",
-            "echo Installation of Wordpress done!"    
+
+      "echo Installing Wordpress version ${var.wordpress_version}",
+      "echo",
+      "sudo yum update -y",
+      "sudo yum install httpd wget git -y",
+      "sudo yum install php php-mysql -y",
+      "sudo yum install php-gd mariadb-server mariadb -y",
+      "sudo yum install mysql -y",
+      "sudo systemctl start httpd",
+      "sudo systemctl enable httpd.service",
+      "sudo systemctl start mariadb",
+      "sudo systemctl enable mariadb.service",
+      "sudo systemctl restart httpd.service",
+      "wget https://wordpress.org/wordpress-${var.wordpress_version}.tar.gz",
+      "tar xzvf wordpress-*",
+      "sudo rsync -avP ~/wordpress/ /var/www/html/",
+      "mkdir /var/www/html/wp-content/uploads",
+      "sudo chown -R apache:apache /var/www/html/*",
+      "cd /var/www/html",
+      "cp wp-config-sample.php wp-config.php",
+      "echo ",
+      "echo Installation of Wordpress done!"
     ]
-}
+  }
 
 }
